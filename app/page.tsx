@@ -14,6 +14,7 @@ export default async function HomePage() {
           <LogIn className="mr-1" />
           Auth
         </Link>
+        <Link href="/settings/llm-provider" className="hover:underline">LLM Settings</Link>
       </nav>
     </div>
   )
