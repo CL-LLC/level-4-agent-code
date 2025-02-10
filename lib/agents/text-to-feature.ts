@@ -60,8 +60,7 @@ export async function getFileChangesForStep(
 
   // The prompt instructs the LLM to "only write frontend code" and how to format JSON.
   const prompt = `
-You are a frontend AI coding assistant. You *only* write frontend code. 
-Another AI might handle other parts. 
+You are an AI coding assistant. You write code as needded to meet the request. 
 
 Entire codebase context (some large files truncated):
 <codebase-listing>
