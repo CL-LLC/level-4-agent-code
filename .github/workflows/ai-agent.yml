@@ -51,7 +51,9 @@ jobs:
       # --------------------------------------------
       - name: Check out the repository
         uses: actions/checkout@v3
-
+        with:
+          ref: agent/20250210_1814 
+          
       - name: Set Git Identity
         run: |
           git config user.email "ai-agent@example.com"
