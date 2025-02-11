@@ -1,0 +1,33 @@
+# Backend Rules
+
+Uses Postgres, Supabase, Drizzle ORM, and Server Actions.
+
+## General Rules
+
+- Never generate migrations. You do not have to do anything in the `db/migrations` folder including migrations and metadata. Ignore it.
+
+## Schemas
+
+- When importing schemas, use `@/db/schema`
+- Name files like `example-schema.ts`
+- All schemas should go in `db/schema`
+- Make sure to export the schema in `db/schema/index.ts`
+- Make sure to add the schema to the `schema` object in `db/db.ts`
+- If using a userId, always use `userId: text("user_id").notNull()`
+- Always include createdAt and updatedAt columns in all tables
+- Make sure to cascade delete when necessary
+- Use enums for columns that have a limited set of possible values
+
+## Server Actions
+
+- When importing actions, use `@/actions` or `@/actions/db` if db related
+- DB related actions should go in the `actions/db` folder
+- Other actions should go in the `actions` folder
+- Name files like `example-actions.ts`
+- All actions should go in the `actions` folder
+- Only write the needed actions
+- Return an ActionState with the needed data type from actions
+- Include Action at the end of function names `Ex: exampleFunction -> exampleFunctionAction`
+- Actions should return a Promise<ActionState<T>>
+- Sort in CRUD order: Create, Read, Update, Delete
+- Make sure to return undefined as the data type if the action is not supposed to return any data 

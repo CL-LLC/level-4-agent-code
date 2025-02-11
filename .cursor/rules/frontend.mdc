@@ -1,0 +1,37 @@
+# Frontend Rules
+
+Uses Next.js, Tailwind, Shadcn, and Framer Motion.
+
+## General Rules
+
+- Use `lucide-react` for icons
+
+## Components
+
+- Use divs instead of other html tags unless otherwise specified
+- Separate the main parts of a component's html with an extra blank line for visual spacing
+- Always tag a component with either `use server` or `use client` at the top, including layouts and pages
+
+### Organization
+
+- All components be named using kebab case like `example-component.tsx` unless otherwise specified
+- Put components in `/_components` in the route if one-off components
+- Put components in `/components` from the root if shared components
+
+### Data Fetching
+
+- Fetch data in server components and pass the data down as props to client components.
+- Use server actions from `/actions` to mutate data.
+
+### Server Components
+
+- Use `"use server"` at the top of the file.
+- Implement Suspense for asynchronous data fetching to show loading states while data is being fetched.
+- If no asynchronous logic is required for a given server component, you do not need to wrap the component in `<Suspense>`.
+- If asynchronous fetching is required, use a `<Suspense>` boundary and a fallback to indicate a loading state while data is loading.
+- Server components cannot be imported into client components. Pass them as props using the "children" prop
+
+### Client Components
+
+- Use `"use client"` at the top of the file
+- Client components can safely rely on props passed down from server components, or handle UI interactions without needing <Suspense> if there's no async logic. 
